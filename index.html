@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * "unsafe-inline" gap: ws: https://ssl.gstatic.com; style-src 'self' http://* 'unsafe-inline';media-src *;img-src * 'self' data: content:;script-src * 'unsafe-inline' 'unsafe-eval' data: blob:;"> -->
+   
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" type="text/css" href="includes/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="includes/materialize/css/fonts/material-icons.css">
+    <link rel="stylesheet" type="text/css" href="includes/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="includes/opensans/OpenSans.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/theme.css" />
+    <link rel="stylesheet" type="text/css" href="includes/animate.css" />
+ 
+    <title> Atendimento Remoto </title>
+</head>
+
+<body>
+    <div class="loading">
+        <div class="preloader-wrapper active">
+            <div class="spinner-layer spinner-red-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="page animated bg-purple1" id="home">
+         
+        <header class="navbar-fixed center-align app-head"> 
+            <nav class="">
+                <!-- <i class="material-icons menu-icon left px-3">arrow_back</i> -->
+                CONFIRME SEU CONVITE
+                <!-- <i class="material-icons menu-icon right px-3" onclick="controller.openPage('index');">more_vert</i> -->
+            </nav>
+        </header>
+
+        <div class="row ptop valign-wrapper">
+            <form class="col s12" id="form-homologa">
+            <div class="row">
+                <div class="input-field input-white col s12">
+                    <input placeholder="Seu e-mail" class="" id="cnpj" name="emailIndicado" required type="text" value="jpcastro4@gmail.com" >
+                    <label for="cnpj">Insira seu e-mail</label>
+                </div>
+                
+            </div>
+            <div class="row ">
+                <div class="col s12 right-align">
+                    <button class="btn btn-white waves-effect waves-light " type="submit" name="action">Solicitar
+                        
+                    </button>
+                </div>
+                
+            </div>
+            </form>
+        </div>
+      
+    </div>
+
+    <div class="page animated hidden" id="login">
+         
+        <header class="navbar-fixed center-align app-head"> 
+            <nav class="bg-verde">
+                <!-- <i class="material-icons menu-icon left px-3">arrow_back</i> -->
+                LOGIN
+                <i class="material-icons menu-icon right px-3 dropdown-trigger" data-target="menu-login">more_vert</i>
+
+                <ul id="menu-login" class="dropdown-content">
+                    <li>
+                        <a href="#" data-target="homologacao" class="openPage">Trocar empresa</a>
+                    </li>
+                </ul>
+
+            </nav>
+        </header>
+
+        <div class="row ptop valign-wrapper">
+            <form class="col s12" id="form-login">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Matricula/Cod Vendedor" id="codvendedor" class="validate" type="text" name="ID">
+                    <label for="codvendedor">Matrícula/Cod Vendedor</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Senha" id="senhavendedor"  class="validate" type="password" name="SENHA">
+                    <label for="senhavendedor">Senha</label>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col s12 right-align">
+                    <button class="btn waves-effect waves-light " type="submit" name="action">Entrar
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+                
+            </div>
+            </form>
+        </div>
+      
+    </div>
+    
+    <div class="page animated hidden" id="pedidos">
+        
+        <header class="navbar-fixed center-align app-head">
+            <nav class="bg-verde">
+                <!-- <i class="material-icons menu-icon left px-3">arrow_back</i> -->
+                PEDIDOS
+                <i class="material-icons menu-icon right px-3 dropdown-trigger" data-target="menu-pedidos">more_vert</i>
+                    
+                <ul id="menu-pedidos" class="dropdown-content">
+                    <li>
+                        <a href="#" id="sair">Sair</a>
+                        <a href="#" id="sync">Sync</a>
+                    </li>
+                </ul>
+    
+            </nav>
+        </header>
+    
+        <div class="row">
+            <div class="row">
+                <div class="row mb-0 bg-verde font-branco">
+                    <ul class="tabs tab-pedidos bg-verde font-branco">
+                        <li class="tab col s3">
+                            <a class="active" href="#abertos">ABERTOS</a>
+                        </li>                         
+                        <!-- <li class="tab col s3">
+                            <a href="#aguardando">AGUARDANDO</a>
+                        </li> -->
+                        <li class="tab col s3">
+                            <a href="#fechados">FECHADOS</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="abertos" class="col s12 pt-2">
+                    <div class="row" id="lista-pedidos-abertos">
+                        
+                    </div>
+
+                </div>
+                <!-- <div id="aguardando" class="col s12 pt-2">Test 3</div> -->
+                <div id="fechados" class="col s12 pt-2">
+                    <div class="row" id="lista-pedidos-fechados">
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large red" id="novo-pedido">
+                <i class="large material-icons">add</i>
+            </a>
+        </div>
+    </div>
+
+    <div class="page animated hidden" id="clientes">
+    
+        <header class="navbar-fixed center-align app-head">
+            <nav class="bg-verde">
+                <i class="material-icons menu-icon left px-3 openPage" data-target="pedidos">arrow_back</i>
+                CLIENTES
+                <!-- <a href="#" class="menu-icon right px-3 dropdown-trigger" data-target="menu-clientes">
+                    <i class="material-icons">more_vert</i>
+                </a> -->
+    
+                <!-- <ul id="menu-clientes" class="dropdown-content">
+                    <li>
+                        <a href="#" class="openPage">Homologar</a>
+                    </li>
+                </ul> -->
+    
+            </nav>
+        </header>
+    
+        <div class="row">
+            <div class="row mb-0 bg-verde font-branco">
+                <form class="col p-2 s12" id="busca-cliente">
+                    <div class="search-input col s12">
+                        <div class="row mb-0 valign-wrapper">
+                            <div class="col s2">
+                                <i class="material-icons prefix left" id="abrir-filtros-clientes">filter_list</i>
+                            </div>
+                            <div class="col s8 px-0">
+                                <input id="icon_prefix" placeholder="Busque o cliente" name="s" type="text" class="validate">
+                            </div>
+                            <div class="col s2">
+                                <i class="material-icons prefix right">search</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 hidden teal lighten-5" id="filtros-clientes">
+                        <div class="col py-3">
+                            <p class="py-3">
+                                <label>
+                                    <input name="filtro" type="radio" value="NOME" checked/>
+                                    <span>Por nome</span>
+                                </label>
+                            </p>
+                            <p class="py-3">
+                                <label>
+                                    <input name="filtro" type="radio" value="CODIGO" />
+                                    <span>Por código</span>
+                                </label>
+                            </p>
+                            <p class="py-3">
+                                <label>
+                                    <input name="filtro" type="radio" value="CNPJ_CPF" />
+                                    <span>Por CPF ou CNPJ</span>
+                                </label>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col s12 pt-2 keyboard" id="lista-clientes">
+                <div class="row">
+                    <div class="col s12 py-5 center-align">
+                        <img width="80" class="" src="img/user.png">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="page animated hidden" id="produtos">
+    
+        <header class="navbar-fixed center-align app-head">
+            <nav class="bg-verde">
+                <i class="material-icons menu-icon left px-3 openPage" data-target="pedido">arrow_back</i>
+                PRODUTOS
+                <!-- <i class="material-icons menu-icon right px-3 dropdown-trigger" data-target="menu-produtos">more_vert</i>
+    
+                <ul id="menu-produtos" class="dropdown-content">
+                    <li>
+                        <a href="#" class="openPage">Homologar</a>
+                    </li>
+                </ul> -->
+    
+            </nav>
+        </header>
+    
+        <div class="row">
+            <div class="row">
+                <div class="row mb-0 bg-verde font-branco">
+                    <form class="col p-2 s12" id="busca-produto">
+                        <div class="search-input col s12">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2">
+                                    <i class="material-icons prefix left" id="abrir-fitros-produtos">filter_list</i>
+                                </div>
+                                <div class="col s8 px-0">
+                                    <input id="inpt-busca-produto" placeholder="Busque um produto" name="s" type="text" class="validate">
+                                </div>
+                                <div class="col s2">
+                                    <i class="material-icons prefix right" id="abrir-leitor">settings_remote</i>
+                                </div>
+                            </div>
+    
+                        </div>
+                        <div class="col s12 hidden teal lighten-5" id="filtros-produtos">
+                            <div class="col py-3">
+                                <p class="py-3">
+                                    <label>
+                                        <input name="filtro" type="radio" value="DESCRICAO_PRODUTO" checked/>
+                                        <span>Por descrição</span>
+                                    </label>
+                                </p>
+                                <p class="py-3">
+                                    <label>
+                                        <input name="filtro" type="radio" value="CODIGO" />
+                                        <span>Por código</span>
+                                    </label>
+                                </p>
+                                <p class="py-3">
+                                    <label>
+                                        <input name="filtro" type="radio" value="CODIGO_BARRA_PRODUTO" />
+                                        <span>Código de barras</span>
+                                    </label>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col s12 pt-2" >
+                    <div class="row mb-0 item" id="lista-produtos">
+                             <!--    <div class="col s10">
+                                    <div class="row mb-0 item-head">
+                                        <div class="col s12">NOME DO CLIENTE</div>
+                                    </div>
+                                    <div class="row mb-0">
+                                        <div class="col s3">
+                                            <span>COD</span>
+                                        </div>
+                                        <div class="col s9">
+                                            <span>CNPJ</span>
+                                        </div>
+                                        <div class="col s3">
+                                            <span class="codCliente">123</span>
+                                        </div>
+                            
+                                        <div class="col s9">
+                                            <span class="cnpjCliente truncate">1492689752001</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s2 valign-wrapper">
+                                    <i class="material-icons teal darken-1 item-icon">chevron_right</i>
+                                </div>
+                            
+                                <hr class="divisor col s12" tabindex="-1"> -->
+                        <div class="col s12">
+                            <div class="col s12 py-5 center-align">
+                                <img width="80" src="img/product.png">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+    
+                </div>
+    
+            </div>
+        </div>
+    </div>
+
+    <div class="page animated hidden" id="produto">
+    
+        <header class="navbar-fixed center-align app-head">
+            <nav class="bg-verde">
+                <i class="material-icons menu-icon left px-3 openPage" data-target="pedido">arrow_back</i>
+                PRODUTO
+                <!-- <i class="material-icons menu-icon right px-3 dropdown-trigger" data-target="menu-produtos">more_vert</i> -->
+    
+                <!-- <ul id="menu-produtos" class="dropdown-content">
+                    <li>
+                        <a href="#" class="openPage">Homologar</a>
+                    </li>
+                </ul> -->
+    
+            </nav>
+        </header>
+    
+        <div class="row pt-2 keyboard">
+            <div class="col s12 m7" id="view-produto">
+            </div>
+        </div>
+    </div>
+
+    <div class="page animated hidden" id="pedido">
+    
+        <header class="navbar-fixed center-align app-head">
+            <nav class="bg-verde">
+                <i class="material-icons menu-icon left px-3 openPage" data-target="pedidos">arrow_back</i>
+                PEDIDO
+                <i class="material-icons menu-icon right px-3 dropdown-trigger" data-target="menu-pedido">more_vert</i>
+                     
+                <ul id="menu-pedido" class="dropdown-content">
+                    <li>
+                        <a href="#" class="openPage" data-target="config-pedido">Fechar pedido</a>
+                        <a href="#" id="excluir-pedido">Excluir pedido</a>
+                        <!-- <a href="#" class="openPage" data-target="fechamento">Faturar pedido</a> -->
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div class="row subhead navbar-fixed">
+            <div class="col s12 bg-verde pin-top">
+                <div class="row mb-0 totais">
+                    <div class="col s6 py-2 center-align">
+                        <h2 class="">
+                            <span data-badge-left-caption="Total R$" class="badge white-text pedido-total">0,00</span>
+                        </h2>
+                    </div>
+                    <div class="col s6 py-2 center-align">
+                        <h2 class="">
+                            <span data-badge-caption=" itens" class="badge white-text pedido-itens">0</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row corpo">
+            <div class="col s12 pt-2" >
+                <div class="row mb-0 item" id="lista-produtos-pedido">
+
+                    <div class="col s12">
+                        <div class="alert alert-info center-align">Adicione produtos ao pedido</div>
+                    </div>
+                    
+                </div> 
+    
+            </div>
+            <div class="fixed-action-btn">
+                <a class="btn-floating btn-large red" id="add-produto">
+                    <i class="large material-icons">add</i>
+                </a>
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="page animated hidden" id="config-pedido">
+    
+        <header class="navbar-fixed center-align app-head">
+            <nav class="bg-verde">
+                <i class="material-icons menu-icon left px-3 openPage" data-target="pedido">arrow_back</i>
+                AJUSTES DO PEDIDO
+                
+                <i class="material-icons menu-icon right px-3 dropdown-trigger" data-target="menu-config-pedido">more_vert</i>
+                
+    
+                <ul id="menu-config-pedido" class="dropdown-content">
+                    <li>
+                        <!-- <a href="#" class="openPage" data-target="pedido">Ver pedido</a> -->
+                        <a href="#" id="excluir-pedido">Excluir pedido</a>
+                        <!-- <a href="#" class="openPage" data-target="fechamento">Faturar pedido</a> -->
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    
+        <div class="row">
+                <div class="col s12 pt-2" id="lisa-produtos-pedido">
+                    <div class="alert alert-warning center-align">O faturamento da nota inscide os impostos pertinentes cadastrados no sistema.</div>
+                    <form class="col s12" action="#">
+                        <p class="my-3"> Faturar nota fiscal
+                            <div class="switch">
+                                <label>
+                                    Não
+                                    <input type="checkbox" id="nota-fiscal">
+                                    <span class="lever"></span>
+                                    Sim
+                                </label>
+                            </div>
+                        </p>
+                    </form>
+                    <hr class="divisor col s12" tabindex="-1">                     
+                </div>
+                <div class="col s12 pt3 center-align" >
+                    <button class="waves-effect waves-light btn-large" id="fechar-pedido">
+                        Enviar pedido <i class="material-icons right">cloud</i>
+                    </button>
+                </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="includes/jquery-3.3.1.min.js"></script>
+    <script src="includes/bootstrap/js/bootstrap.min.js"></script>
+    <script src="includes/materialize/js/materialize.min.js"></script>
+    
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <script type="text/javascript" src="includes/fastclick.min.js"></script>
+    <script type="text/javascript" src="includes/pouchdb-6.4.3.js"></script>
+    <script type="text/javascript" src="includes/pouchdb.quick-search.min.js"></script>
+    <script type="text/javascript" src="includes/jquery.serializejson.js"></script> 
+
+    <script type="text/javascript" src="js/db_pouchdb.js"></script>
+    <script type="text/javascript" src="js/model_pouchDb.js"></script>
+    <script type="text/javascript" src="js/view.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>  
+    <script type="text/javascript" src="js/index.js"></script> 
+        
+    <script type="text/javascript">
+        app.initialize();
+    </script>  
+
+</body>
+</html>
