@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="includes/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="includes/materialize/css/fonts/material-icons.css">
     <link rel="stylesheet" type="text/css" href="includes/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="includes/flaticon2/flaticon.css">
     <link rel="stylesheet" type="text/css" href="includes/opensans/OpenSans.css">
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/theme.css" />
@@ -48,10 +49,10 @@
         </div>
     </div>
     
-    <div class="page animated bg-purple1" id="home">
+    <div class="page animated bg-purple1 hidden" id="confirm">
          
-        <header class="navbar-fixed center-align app-head"> 
-            <nav class="">
+        <header class="navbar-fixed pt-3 navbar-intro center-align app-head"> 
+            <nav classx=" py-2">
                 <!-- <i class="material-icons menu-icon left px-3">arrow_back</i> -->
                 CONFIRME SEU CONVITE
                 <!-- <i class="material-icons menu-icon right px-3" onclick="controller.openPage('index');">more_vert</i> -->
@@ -80,10 +81,307 @@
       
     </div>
 
+    <div class="page animated bg-purple1 hidden" id="terms">
+    
+        <header class="navbar-fixed pt-3 navbar-intro center-align app-head ">
+            <nav class="px-5 py-2">
+                <i class="material-icons menu-icon left px-3">arrow_back</i>
+                 TERMOS E CONDIÇÕES POLÍTICA DE PRIVACIDADE
+                <!-- <i class="material-icons menu-icon right px-3" onclick="controller.openPage('index');">more_vert</i> -->
+            </nav>
+        </header>
+    
+        <div class="row ptop valign-wrapper">
+            <form class="col s12" id="form-homologa">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="box-panel p-2 bg-white">Aqui vão os termos e condições do aplicativo</div> 
+                    </div>
+    
+                </div>
+                <div class="row ">
+                    <div class="col s12">
+                        <button class="btn btn-white waves-effect waves-light " type="submit" name="action">ACEITAR E CONTINUAR</button>
+                    </div>
+    
+                </div>
+            </form>
+        </div>
+    
+    </div>
+
+    <div class="page animated bg-purple1 hidden" id="profile">
+    
+        <header class="navbar-fixed pt-3 navbar-intro center-align app-head ">
+            <nav class="px-5 py-2">
+                <i class="material-icons menu-icon left px-3">arrow_back</i>
+                 SEUS DADOS PESSOAIS
+                <!-- <i class="material-icons menu-icon right px-3" onclick="controller.openPage('index');">more_vert</i> -->
+            </nav>
+            <p>Precisamos conhecer você e ter seus contatos</p>
+        </header>
+    
+        <div class="row ptop valign-wrapper">
+            <form class="col s12" id="form-homologa">
+                <div class="row">
+                    <div class="input-field input-white col s12">
+                        <input placeholder="Nome" class="" id="nome" name="nome" required type="text" value="">
+                        <label for="nome">Primeiro nome</label>
+                    </div>
+
+                    <div class="input-field input-white col s12">
+                        <input placeholder="Sobrenome" class="" id="sobrenome" name="sobrenome" required type="text" value="">
+                        <label for="sobrenome">Sobrenome</label>
+                    </div>
+
+                    <div class="input-field input-white col s12">
+                        <input placeholder="Telefone" class="" id="telefone" name="telefone" required type="text" value="">
+                        <label for="telefone">Telefone</label>
+                    </div>
+
+                    <div class="input-field input-white col s12">
+                        <input placeholder="Data de nascimento" class="" id="nascimento" name="nascimento" required type="text" value="">
+                        <label for="nascimento">Data de nascimento</label>
+                    </div>
+
+                    <div class="input-field input-white col s12">
+                        <input placeholder="Sexo" class="" id="sexo" name="sexo" required type="text" value="">
+                        <label for="sexo">Sexo</label>
+                    </div>
+            
+                </div>
+                <div class="row ">
+                    <div class="col s12 right-align">
+                        <button class="btn btn-white waves-effect waves-light " type="submit" name="action">SALVAR PERFIL
+            
+                        </button>
+                    </div>
+            
+                </div>
+            </form>
+        </div>
+    
+    </div>
+
+    <div class="page animated bg-purple1 hidden" id="fiscal">
+    
+        <header class="navbar-fixed pt-3 navbar-intro center-align app-head ">
+            <nav class="px-5 py-2">
+                <i class="material-icons menu-icon left px-3">arrow_back</i>
+                 SEUS DADOS FISCAIS
+                <!-- <i class="material-icons menu-icon right px-3" onclick="controller.openPage('index');">more_vert</i> -->
+            </nav>
+            <p>Seu país exige informações fiscais</p>
+        </header>
+    
+        <div class="row ptop valign-wrapper">
+            <form class="col s12" id="form-homologa">
+                <div class="row">
+                    <div class="input-field input-white col s12">
+                        <input placeholder="000.000.000-00" class="" id="cpf" name="cpf" required type="text" value="">
+                        <label for="cpf">CPF</label>
+                    </div>
+    
+                    <div class="input-field input-white col s12">
+                        <input placeholder="00.000-00" class="" id="cep" name="cep" required type="text" value="">
+                        <label for="cep">CEP</label>
+                    </div>
+    
+                    <div class="input-field input-white col s3">
+                        <input placeholder="UF" class="" id="uf" name="uf" required type="text" value="">
+                        <label for="uf">UF</label>
+                    </div>
+    
+                    <div class="input-field input-white col s9">
+                        <input placeholder="Cidade" class="" id="cidade" name="cidade" required type="text" value="">
+                        <label for="cidade">Cidade</label>
+                    </div>
+    
+                    <div class="input-field input-white col s12">
+                        <input placeholder="Rua" class="" id="rua" name="rua" required type="text" value="">
+                        <label for="rua">Rua</label>
+                    </div>
+
+                    <div class="input-field input-white col s3">
+                        <input placeholder="Número" class="" id="numero" name="numero" required type="text" value="">
+                        <label for="numero">Número</label>
+                    </div>
+
+                    <div class="input-field input-white col s9">
+                        <input placeholder="Complemento" class="" id="complemento" name="complemento" required type="text" value="">
+                        <label for="complemento">Complemento</label>
+                    </div>
+    
+                </div>
+                <div class="row ">
+                    <div class="col s12 right-align">
+                        <button class="btn btn-white waves-effect waves-light " type="submit" name="action">ENVIAR DADOS
+    
+                        </button>
+                    </div>
+    
+                </div>
+            </form>
+        </div>
+    
+    </div>
+
+    <div class="page animated bg-purple1 hidden" id="pass">
+    
+        <header class="navbar-fixed pt-3 navbar-intro center-align app-head ">
+            <nav class="px-5 py-2">
+                <i class="material-icons menu-icon left px-3">arrow_back</i>
+                 CRIE UMA SENHA
+                <!-- <i class="material-icons menu-icon right px-3" onclick="controller.openPage('index');">more_vert</i> -->
+            </nav>
+            <p>Ela é seu passaporte para o universo Weegron</p>
+        </header>
+    
+        <div class="row ptop valign-wrapper">
+            <form class="col s12" id="form-homologa">
+                <div class="row">
+                    <div class="input-field input-white col s12">
+                        <input placeholder="Senha" class="" id="senha" name="senha" required type="text" value="">
+                        <label for="senha">Senha</label>
+                    </div>
+    
+                    <div class="input-field input-white col s12">
+                        <input placeholder="Repita a senha" class="" id="repita-senha" name="repita-senha" required type="text" value="">
+                        <label for="repita-senha">Repita a senha</label>
+                    </div>
+    
+                     
+    
+                </div>
+                <div class="row ">
+                    <div class="col s12 right-align">
+                        <button class="btn btn-white waves-effect waves-light " type="submit" name="action">SALVAR SENHA
+                        </button>
+                    </div>
+    
+                </div>
+            </form>
+        </div>
+    
+    </div>
+
+    <div class="page animated bg-purple1 hidden" id="nick">
+    
+        <header class="navbar-fixed pt-3 navbar-intro center-align app-head ">
+            <nav class="px-5 py-2">
+                <i class="material-icons menu-icon left px-3">arrow_back</i>
+                 CRIE SEU NICK
+                <!-- <i class="material-icons menu-icon right px-3" onclick="controller.openPage('index');">more_vert</i> -->
+            </nav>
+            <p>Ele é sua identidade na plataforma</p>
+        </header>
+    
+        <div class="row ptop valign-wrapper">
+            <form class="col s12" id="form-homologa">
+                <div class="row">
+                     
+                    <div class="input-field input-white col s12">
+                        <input placeholder="Crie seu nick" class="" id="nick" name="nick" required type="text" value="">
+                        <label for="nick">Insira um nick único</label>
+                    </div>
+    
+    
+    
+                </div>
+                <div class="row ">
+                    <div class="col s12 right-align">
+                        <button class="btn btn-white waves-effect waves-light " type="submit" name="action">FINALIZAR</button>
+                    </div>
+    
+                </div>
+            </form>
+        </div>
+    
+    </div>
+
+    <div class="page animated bg-purple1" id="nick">
+    
+        <header class="navbar-fixed pt-3 navbar-principal center-align app-head">
+            <nav class="">
+                WEEGRON
+                <div class="username pt-2">João Paulo</div>
+                <i class="material-icons menu-icon" onclick="controller.openPage('index');">keyboard_arrow_down</i>
+            </nav>
+             
+        </header>
+        
+        <div class="box-submenu">
+            <div class="row ptop valign-wrapper">
+                <div class="col s12 center-align">
+                    <img src="img/qr.png" width="120" />
+                    <div class="nick font-white">@jpcastro</div>
+                </div>
+            
+            </div>
+            <div class="row valign-wrapper">
+                <div class="col s12 submenu">
+                    <div class="submenu-item">
+                        <i class="flaticon-man"></i> Perfil</div>
+                    <div class="submenu-item">
+                        <i class="flaticon-settings"></i> Configurações</div>
+                    <div class="submenu-item">
+                        <i class="flaticon-info"></i> Suporte</div>
+                </div>
+                 
+            </div>
+            <div class="row valign-wrapper">
+                <div class="col s12">
+                    <button class="btn btn-white waves-effect waves-light my-4" type="submit" name="action">FECHAR</button>
+                </div>
+                
+            </div>
+        </div>
+                
+        <div class="row ptop valign-wrapper">
+            <div class="col s12"  >
+                <div class="principal-menu-item">
+                    <i class="flaticon-plus"></i>
+                    <span class="menu-item-title">Indicar
+                        <br>amigos</span>
+                </div>
+                <div class="principal-menu-item">
+                    <i class="flaticon-bag"></i>
+                    <span class="menu-item-title">Comprar
+                        <br>card's</span>
+                </div>
+                <div class="principal-menu-item">
+                    <i class="flaticon-wallet"></i>
+                    <span class="menu-item-title">Transferir</span>
+                </div>
+
+                <div class="principal-menu-item">
+                    <i class="flaticon-dollar"></i>
+                    <span class="menu-item-title">Meus card's</span>
+                </div>
+                <div class="principal-menu-item">
+                    <i class="flaticon-badge"></i>
+                    <span class="menu-item-title">Rewards</span>
+                </div>
+                
+            </div>
+        </div>
+    
+    </div>
+
+
+
+
+
+
+
+
+
+
+
     <div class="page animated hidden" id="login">
          
-        <header class="navbar-fixed center-align app-head"> 
-            <nav class="bg-verde">
+        <header class="navbar-fixed pt-3 center-align app-head"> 
+            <nav class="bg-verxde py-2">
                 <!-- <i class="material-icons menu-icon left px-3">arrow_back</i> -->
                 LOGIN
                 <i class="material-icons menu-icon right px-3 dropdown-trigger" data-target="menu-login">more_vert</i>

@@ -42,6 +42,12 @@ body, html{
 .p-3{
     padding:1.1rem !important;
 }
+.p-4{
+    padding:1.3rem !important;
+}
+.p-5{
+    padding:1.6rem !important;
+}
 .px-0{
     padding-left:0 !important;
     padding-right:0 !important;
@@ -98,8 +104,20 @@ body, html{
 }
 
 /* MARGINS */
+.m-1{
+    margin:0.8rem !important;
+}
+.m-2{
+    margin:0.8rem !important;
+}
 .m-3{
     margin:1.1rem !important;
+}
+.m-4{
+    margin:1.3rem !important;
+}
+.m-4{
+    margin:1.6rem !important;
 }
 
 .mt-1{
@@ -173,7 +191,7 @@ body, html{
 .bg-verde{
 	background:#22B573;
 }
-.bg-branco{
+.bg-white{
 	background:#fff;
 }
 
@@ -184,13 +202,78 @@ body, html{
     background:#474185
 }
 
-.navbar-fixed nav{
+.navbar-intro p{
+    color:#fff;
+    font-family: 'open_sanslight' !important;
+    font-weight: inherit;
+    font-size:11px;
+}
+.navbar-intro nav{
+    font-family: 'open_sansextrabold';
     background:none !important;
-    font-weight: 700;
+    font-weight: 900;
     font-size:20px;
     box-shadow: none;
-    padding-top:30px;
-    padding-bottom:30px;
+    line-height:initial;
+    position: inherit;
+}
+
+.navbar-principal nav{
+    font-family: 'open_sansextrabold';
+    background:none !important;
+    font-weight: 900;
+    font-size:20px;
+    box-shadow: none;
+    line-height:initial;
+    position: inherit;
+}
+
+.username{
+    font-family: 'open_sanslight';
+    font-size:15px;
+}
+.navbar-principal .menu-icon{
+    line-height: inherit;
+    height: inherit;
+}
+.box-panel{
+    border-radius:8px;
+}
+
+.principal-menu-item{
+    width:31%;
+    height:140px;
+    border-radius:8px;
+    background:#4F4989;
+    color:#fff;
+    margin:3px;
+    padding:12px;
+    float:left;
+    position: relative;
+}
+.principal-menu-item i{
+    position: absolute;
+    font-size:40px;
+    display: inline-block;
+}
+.menu-item-title{
+    position: absolute;
+    bottom:10px;
+    display: inline-block;
+}
+
+.submenu{
+    color:#fff;
+    font-size:18px;
+}
+.submenu-item{
+    border-bottom:0.01rem solid #fff;
+    font-family: 'open_sanslight';
+    padding:9px 12px;
+     
+}
+.submenu-item i{
+    margin-right:15px;
 }
 .input{
     border:none;
@@ -254,7 +337,7 @@ body, html{
 	overflow:auto; 
 }
 .ptop{
-    padding-top:54px;
+    padding-top:6rem;
 }
 .animated {
 	animation-duration:0.4s !important;

@@ -1,0 +1,63 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 07/08/2018 03:13
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-settings:before { content: "\f100"; }
+.flaticon-man:before { content: "\f101"; }
+.flaticon-info:before { content: "\f102"; }
+.flaticon-transaction:before { content: "\f103"; }
+.flaticon-bag:before { content: "\f104"; }
+.flaticon-dollar:before { content: "\f105"; }
+.flaticon-wallet:before { content: "\f106"; }
+.flaticon-badge:before { content: "\f107"; }
+.flaticon-plus:before { content: "\f108"; }
+.flaticon-interface-symbol-of-three-circles-with-dots-inside-connected-by-two-lines:before { content: "\f109"; }
+.flaticon-irregular-zig-zag-line:before { content: "\f10a"; }
+.flaticon-shield:before { content: "\f10b"; }
+    
+    $font-Flaticon-settings: "\f100";
+    $font-Flaticon-man: "\f101";
+    $font-Flaticon-info: "\f102";
+    $font-Flaticon-transaction: "\f103";
+    $font-Flaticon-bag: "\f104";
+    $font-Flaticon-dollar: "\f105";
+    $font-Flaticon-wallet: "\f106";
+    $font-Flaticon-badge: "\f107";
+    $font-Flaticon-plus: "\f108";
+    $font-Flaticon-interface-symbol-of-three-circles-with-dots-inside-connected-by-two-lines: "\f109";
+    $font-Flaticon-irregular-zig-zag-line: "\f10a";
+    $font-Flaticon-shield: "\f10b";
