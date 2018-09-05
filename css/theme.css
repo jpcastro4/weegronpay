@@ -202,6 +202,9 @@ body, html{
     background:#474185
 }
 
+.navbar-fixed nav{
+    box-shadow: none;
+}
 .navbar-intro p{
     color:#fff;
     font-family: 'open_sanslight' !important;
@@ -278,7 +281,7 @@ body, html{
 .input{
     border:none;
 }
-.input-black{
+.input-black input{
     border-bottom:2px solid #000;
     color:#000;
 }
@@ -297,8 +300,11 @@ body, html{
     border-width: 1px;
     border-style: solid;
     width: 100%;
-    border-radius:5px;
+    /* border-radius:5px; */
     height:45px;
+}
+.btn-flat{
+    border:none !important;
 }
 .btn-purple{
     border-color:#662D91;
@@ -308,7 +314,7 @@ body, html{
     border-color:#fff;
     color:#fff;
 }
-
+ 
 .font-branco{
     color:#fff !important;
 }
@@ -362,12 +368,18 @@ body, html{
 
 }
 
-
-
-
-
-
-
+.box{
+    padding:20px;
+    border-radius:8px;
+}
+.box.purple{
+    background:#662D91;
+    color:#fff;
+}
+.blox.grey{
+    background:rgb(163, 163, 163);
+    color:#333;
+}
 
 
 
